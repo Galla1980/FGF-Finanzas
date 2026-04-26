@@ -7,9 +7,14 @@ using System.Web.UI.WebControls;
 
 namespace FGF_Finanzas
 {
-    public partial class Contact : Page
+    public partial class Login : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void LogIn(object sender, EventArgs e)
         {
 
         }

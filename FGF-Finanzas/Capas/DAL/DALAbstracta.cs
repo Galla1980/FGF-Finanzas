@@ -8,6 +8,6 @@ namespace FGF_Finanzas.Capas.DAL
 {
     public abstract class DALAbstracta
     {
-        private string _conexion = ConfigurationManager.ConnectionStrings["DBConnection"].ConnectionString;
+        protected string _conexion = ConfigurationManager.ConnectionStrings["DBConnection"].ConnectionString;
     }
 }
