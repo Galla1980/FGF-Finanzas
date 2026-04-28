@@ -11,7 +11,7 @@ namespace FGF_Finanzas
 {
 
 
-    public partial class Login
+    public partial class Registrarse
     {
 
         /// <summary>
@@ -21,16 +21,34 @@ namespace FGF_Finanzas
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder ErrorMessage;
+        protected global::System.Web.UI.WebControls.Literal ErrorMessage;
 
         /// <summary>
-        /// Control FailureText.
+        /// Control DniUsuario.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal FailureText;
+        protected global::System.Web.UI.WebControls.TextBox DniUsuario;
+
+        /// <summary>
+        /// Control Nombre.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Nombre;
+
+        /// <summary>
+        /// Control Apellido.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Apellido;
 
         /// <summary>
         /// Control UserName.
@@ -51,6 +69,15 @@ namespace FGF_Finanzas
         protected global::System.Web.UI.WebControls.TextBox Password;
 
         /// <summary>
+        /// Control ConfirmPassword.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox ConfirmPassword;
+
+        /// <summary>
         /// Control lblError.
         /// </summary>
         /// <remarks>
@@ -58,23 +85,5 @@ namespace FGF_Finanzas
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblError;
-
-        /// <summary>
-        /// Control RememberMe.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox RememberMe;
-
-        /// <summary>
-        /// Control RegisterHyperLink.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink RegisterHyperLink;
     }
 }

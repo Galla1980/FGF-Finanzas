@@ -6,7 +6,6 @@
     <div class="col-md-8">
         <section id="loginForm">
             <div class="form-horizontal">
-                <h4>Utilice una cuenta local para iniciar sesión.</h4>
                 <hr />
                 <asp:PlaceHolder runat="server" ID="ErrorMessage" Visible="false">
                     <p class="text-danger">
@@ -26,6 +25,10 @@
                     <div class="col-md-10">
                         <asp:TextBox runat="server" ID="Password" TextMode="Password" CssClass="form-control" />
                         <asp:RequiredFieldValidator runat="server" ControlToValidate="Password" CssClass="text-danger" ErrorMessage="El campo de contraseña es obligatorio." />
+                    </div>
+                    <div class="col-md-10">
+                        <asp:Label runat="server" ID="lblError" CssClass="text-danger"/>
+                        <br />
                     </div>
                 </div>
                 <div class="form-group">

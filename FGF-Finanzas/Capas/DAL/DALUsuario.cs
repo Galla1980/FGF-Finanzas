@@ -33,5 +33,39 @@ namespace FGF_Finanzas.Capas.DAL
 
             adapter.Update(dt);
         }
+
+        public void Actualizar(BEUsuario usuario)
+        {
+            SqlConnection con = new SqlConnection(_conexion);
+            SqlCommand cmd;
+
+            try
+            {
+                con.Open();
+                string query = @"UPDATE Usuario
+                         SET contraseña = @Contraseña, intento = @Intento, nombre = @Nombre, apellido = @Apellido,
+                            bloqueado = @Bloqueado, usuario = @Usuario WHERE DNI = @Dni";
+
+                cmd = new SqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@Dni", usuario.DNI);
+                cmd.Parameters.AddWithValue("@Usuario", usuario.Usuario);
+                cmd.Parameters.AddWithValue("@Nombre", usuario.Nombre);
+                cmd.Parameters.AddWithValue("@Apellido", usuario.Apellido);
+                cmd.Parameters.AddWithValue("@Intento", usuario.Intento);
+                cmd.Parameters.AddWithValue("@Contraseña", usuario.Contraseña);
+                cmd.Parameters.AddWithValue("@Bloqueado", usuario.Bloqueado);
+
+
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Error al actualizar usuario", e);
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
     }
 }
