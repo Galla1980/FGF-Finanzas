@@ -5,7 +5,12 @@ using FGF_Finanzas.Capas.Servicios.SessionManager;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
+using System.Globalization;
 using System.Linq;
+using System.Net;
+using System.Runtime.ConstrainedExecution;
+using System.Text.RegularExpressions;
 using System.Web;
 
 namespace FGF_Finanzas.Capas.BLL
@@ -18,8 +23,23 @@ namespace FGF_Finanzas.Capas.BLL
             dalUsuario = new DALUsuario();
         }
 
-        public void ValidarUsuario(string dni, string usuario)
+        public void ValidarUsuario(string dni, string usuario, string nombre, string apellido, string contraseña, string confirmacion)
         {
+            if (string.IsNullOrWhiteSpace(dni)) throw new Exception("El campo de DNI es obligatorio.");
+            if (!Regex.IsMatch(dni, @"^\d{8}$")) throw new Exception("El DNI debe contener 8(ocho) dígitos.");
+
+            if (string.IsNullOrWhiteSpace(nombre)) throw new Exception("El campo de Nombre es obligatorio.");
+            if (!Regex.IsMatch(nombre, @"^[A-Za-z]{3,}(\s[A-Za-z]{3,})*$")) throw new Exception("Ingrese su/s nombre/s correctamente.");
+
+            if (string.IsNullOrWhiteSpace(apellido)) throw new Exception("El campo de Apellido es obligatorio.");
+            if (!Regex.IsMatch(apellido, @"^[A-Za-z]{3,}(\s[A-Za-z]{3,})*$")) throw new Exception("Ingrese su/s apellido/s correctamente.");
+
+            if (string.IsNullOrWhiteSpace(usuario)) throw new Exception("El campo de Usuario es obligatorio.");
+
+            if (!Regex.IsMatch(contraseña, @"^\w{8,20}$")) throw new Exception("Su contraseña debe tener entre 8 y 20 caracteres.");
+            if (!Regex.IsMatch(contraseña, @"^(?=.*[A-Za-z])(?=.*\d)\S+$")) throw new Exception("Su contraseña debe contener al menos un numero y un caracter.");
+            if (contraseña != confirmacion) throw new Exception("La contraseña y la contraseña de confirmación no coinciden.");
+
             DataTable dt = ObtenerUsuarios();
             foreach (DataRow dr in dt.Rows)
             {

@@ -2,6 +2,7 @@
 using FGF_Finanzas.Capas.BLL;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -22,9 +23,11 @@ namespace FGF_Finanzas
             if (!Page.IsValid) return;
             try
             {
-                bllUsuario.ValidarUsuario(DniUsuario.Text, UserName.Text);
-
-                BEUsuario usuario = new BEUsuario(DniUsuario.Text, Nombre.Text, Apellido.Text, UserName.Text.Trim(), Password.Text);
+                var nombre = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(Nombre.Text.ToLower());
+                var apellido = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(Apellido.Text.ToLower());
+                
+                bllUsuario.ValidarUsuario(DniUsuario.Text, UserName.Text, nombre, apellido, Password.Text, ConfirmPassword.Text);
+                BEUsuario usuario = new BEUsuario(DniUsuario.Text, nombre, apellido, UserName.Text.Trim(), Password.Text);
                 bllUsuario.AgregarUsuario(usuario);
                 Response.Redirect("~/Login.aspx");
             }

@@ -1,0 +1,15 @@
+﻿body {
+}
+
+.boton {
+    margin-top: 10px;
+    padding: 5px;
+    color: #fff;
+    background: #0d6efd;
+    border-radius: 6px;
+    box-shadow: none;
+}
+
+#checkBoxLbl{
+    padding:8px;
+}
